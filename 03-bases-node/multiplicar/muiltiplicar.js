@@ -1,8 +1,19 @@
 const fs = require('fs');
+const color = require('colors');
+
 const { Module } = require('module');
 
+let listarTabla = (base, limite = 10) => {
 
-let crearArchivo = (base) => {
+
+    for (let i = 1; i <= limite; i++) {
+
+        console.log(`${base } * ${ i} = ${base *i}\n`.green);
+    }
+
+}
+
+let crearArchivo = (base, limite = 10) => {
 
     if (!Number(base)) {
         reject('la base ingresada no es un numero');
@@ -11,7 +22,7 @@ let crearArchivo = (base) => {
     let data = '';
     return new Promise((resolve, reject) => {
 
-        for (let i = 1; i <= 10; i++) {
+        for (let i = 1; i <= limite; i++) {
 
             data += `${base } * ${ i} = ${base *i}\n`;
         }
@@ -30,5 +41,6 @@ let crearArchivo = (base) => {
 
 module.exports = {
 
-    crearArchivo
+    crearArchivo,
+    listarTabla
 }
